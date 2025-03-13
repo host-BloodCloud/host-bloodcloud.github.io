@@ -10,7 +10,7 @@
 <body>
   <div class="wrapper">
     <div class="form-wrapper sign-in">
-      <form action="">
+      <form action="" id="loginForm">
         <h2>Login</h2>
         <div class="input-group">
           <input type="text" required>
@@ -54,6 +54,11 @@
       </form>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent actual form submission
+        window.location.href = "https://host-bloodcloud.github.io/mcplans/";
+    });
+  </script>
 </body>
 </html>
