@@ -6,11 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    .floating-logo {
+      position: fixed;
+      right: 20px;
+      bottom: 50px;
+      width: 50px;
+      animation: floatUpDown 2s infinite alternate;
+    }
+    
+    @keyframes floatUpDown {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
     <div class="form-wrapper sign-in">
-      <form action="" id="loginForm">
+      <form action="https://host-bloodcloud.github.io/mcplans/">
         <h2>Login</h2>
         <div class="input-group">
           <input type="text" required>
@@ -54,11 +68,7 @@
       </form>
     </div>
   </div>
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent actual form submission
-        window.location.href = "https://host-bloodcloud.github.io/mcplans/";
-    });
-  </script>
+  <img src="https://i.imgur.com/lpCuTeS.png" alt="Floating Logo" class="floating-logo">
+  <script src="script.js"></script>
 </body>
 </html>
