@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -11,7 +12,6 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
-
         body {
             background: url('https://i.imgur.com/vfIB9J3.jpeg') no-repeat center center/cover;
             display: flex;
@@ -19,97 +19,115 @@
             align-items: center;
             height: 100vh;
         }
-
-        .login-container {
-            background: rgba(255, 255, 255, 0.2);
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 10px;
-            backdrop-filter: blur(10px);
             width: 300px;
             text-align: center;
+            position: relative;
         }
-
-        .login-container h2 {
+        .container h2 {
             margin-bottom: 15px;
             color: #fff;
         }
-
-        .input-field {
-            width: 100%;
+        .input-group {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
             padding: 10px;
             margin: 10px 0;
-            border: none;
-            border-radius: 5px;
         }
-
-        .login-btn {
+        .input-group input {
+            border: none;
+            background: transparent;
+            outline: none;
+            flex: 1;
+            color: #fff;
+        }
+        .input-group i {
+            color: #fff;
+        }
+        .btn {
             width: 100%;
             padding: 10px;
-            background: #fff;
+            background: #000;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
         }
-
-        .login-btn:hover {
-            background: #ddd;
+        .btn:hover {
+            background: #333;
         }
-
         .discord-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             background: #5865F2;
             color: white;
-            font-weight: bold;
             border: none;
             border-radius: 5px;
             padding: 10px;
             width: 100%;
             margin-top: 10px;
             cursor: pointer;
-            transition: 0.3s;
         }
-
         .discord-btn img {
             width: 20px;
             margin-right: 8px;
         }
-
-        .discord-btn:hover {
-            background: #4752C4;
-        }
-
-        .links {
+        .toggle {
             margin-top: 10px;
-        }
-
-        .links a {
-            text-decoration: none;
             color: #fff;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-
-    <div class="login-container">
-        <h2>Login</h2>
-        <input type="text" class="input-field" placeholder="Username">
-        <input type="password" class="input-field" placeholder="Password">
-        <button class="login-btn">Login</button>
-
-        <!-- Discord Login Button -->
+    <div class="container" id="loginContainer">
+        <h2 id="formTitle">Login</h2>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email">
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Password">
+        </div>
+        <button class="btn" id="submitButton">Login</button>
         <button class="discord-btn">
-            <img src="https://i.imgur.com/G0exGjI.png" alt="Discord Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Discord_logo_2015.svg" alt="Discord Logo">
             Login with Discord
         </button>
-
-        <div class="links">
-            <a href="#">Forgot Password?</a> | 
-            <a href="#">Register</a>
-        </div>
+        <div class="toggle" onclick="toggleForm()">Don't have an account? Register</div>
     </div>
-
+    <script>
+        let isLogin = true;
+        function toggleForm() {
+            const formTitle = document.getElementById('formTitle');
+            const submitButton = document.getElementById('submitButton');
+            const toggleText = document.querySelector('.toggle');
+            const loginContainer = document.getElementById('loginContainer');
+            
+            if (isLogin) {
+                formTitle.innerText = 'Register';
+                submitButton.innerText = 'Register';
+                toggleText.innerText = 'Already have an account? Login';
+                const usernameField = document.createElement('div');
+                usernameField.classList.add('input-group');
+                usernameField.innerHTML = '<i class="fas fa-user"></i><input type="text" id="username" placeholder="Username">';
+                loginContainer.insertBefore(usernameField, loginContainer.children[1]);
+            } else {
+                formTitle.innerText = 'Login';
+                submitButton.innerText = 'Login';
+                toggleText.innerText = "Don't have an account? Register";
+                loginContainer.removeChild(loginContainer.children[1]);
+            }
+            isLogin = !isLogin;
+        }
+    </script>
 </body>
 </html>
