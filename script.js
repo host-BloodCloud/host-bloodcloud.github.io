@@ -1,9 +1,8 @@
-const signInBtnLink = document.querySelector('.signInBtn-link');
-const signUpBtnLink = document.querySelector('.signUpBtn-link');
-const wrapper = document.querySelector('.wrapper');
-signUpBtnLink.addEventListener('click', () => {
-    wrapper.classList.toggle('active');
-});
-signInBtnLink.addEventListener('click', () => {
-    wrapper.classList.toggle('active');
-})
+const list = document.querySelectorAll('.list');
+function activeLink() {
+    list.forEach((item) =>
+    item.classList.remove('active'));
+    this.classList.add('active');
+}
+list.forEach((item) =>
+item.addEventListener('click',activeLink));
