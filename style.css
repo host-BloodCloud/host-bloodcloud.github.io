@@ -1,19 +1,12 @@
-.floating-logo {
-  position: fixed;
-  right: 20px; /* Adjust right positioning */
-  bottom: 50px; /* Adjust bottom positioning */
-  width: 120px; /* Make the logo bigger */
-  height: auto;
-  animation: floatUpDown 2s infinite alternate ease-in-out;
-  z-index: 1000;
-}
-
-/* Animation for Up & Down */
-@keyframes floatUpDown {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-20px);
-  }
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px; /* Adjust width */
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
 }
