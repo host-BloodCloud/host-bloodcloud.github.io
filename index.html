@@ -79,6 +79,9 @@
         let user = JSON.parse(userData);
         if (user.password === password) {
           document.getElementById('loginMessage').innerText = 'Login successful!';
+          setTimeout(() => {
+            window.location.href = "https://host-bloodcloud.github.io/home/";
+          }, 1000);
         } else {
           document.getElementById('loginMessage').innerText = 'Invalid password';
         }
