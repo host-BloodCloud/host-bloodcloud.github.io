@@ -18,6 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault(); // Prevent default form submission
 
         // Redirect to home page
-        window.location.href = "https://host-bloodcloud.github.io/home/";
+        window.location.href = "https://host-bloodcloud.github.io/home";
     });
 });
